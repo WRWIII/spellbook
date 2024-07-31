@@ -19,6 +19,7 @@ interface SpellDetails extends Spell {
   duration: string;
   higher_level: string[];
   concentration: boolean;
+  classes: [ { name: string } ]
 }
 
 interface SpellsData {
@@ -99,6 +100,9 @@ function SpellListSelector({ spells }: SpellListSelectorProps) {
             ))}
           </div>
           {spellDetails.higher_level.length > 0 && <div>Higher level cast: {spellDetails.higher_level.join(', ')}</div>}
+          <div>Classes: {spellDetails.classes.map((item) => (
+              item.name + ' '
+            ))}</div>
         </div>
       )}
     </FormControl>
